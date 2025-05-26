@@ -105,7 +105,7 @@ const TeamPage = () => {
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
           <div className="flex items-center mb-4 sm:mb-0">
             <div className="flex-shrink-0">
-              <div className="h-12 w-12 rounded-xl bg-gradient-to-b from-indigo-700 via-indigo-800 to-purple-900 flex items-center justify-center transform rotate-3 shadow-lg">
+              <div className="h-12 w-12 rounded-xl bg-gradient-to-b from-indigo-700 via-indigo-800 to-purple-900 flex items-center justify-center shadow-lg">
                 <svg className="h-8 w-8 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                 </svg>
@@ -355,7 +355,11 @@ const TeamPage = () => {
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-3">Project Mission</h4>
                 <p className="text-gray-600">
-                  To empower citizens through transparent, inclusive, and data-driven participation in the Integrated Development Plan (IDP) process by bridging the gap between municipalities and communities using accessible digital tools.
+                  Linka IDP is a digital solution that improves how citizens engage with municipal development plans. It allows users to access, vote on, and comment on Integrated Development Plans (IDPs) by ward. This encourages transparency and greater community participation.
+                </p> 
+                <br />
+                <p className="text-gray-600">
+                  The platform bridges the gap between local government and residents. It helps municipalities understand local needs and priorities more clearly. Linka promotes inclusive, accountable, and citizen-driven planning.
                 </p>
               </div>
             </div>
