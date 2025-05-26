@@ -492,39 +492,19 @@ const TeamPage = () => {
               <div className="p-8">
                 <div className="w-14 h-14 rounded-lg bg-gray-100 flex items-center justify-center mb-5 group-hover:bg-gray-200 transition-colors duration-300">
                   <svg className="w-7 h-7 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
                   </svg>
                 </div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-3">Implementation Timeline</h4>
-                <div className="space-y-4">
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 h-4 w-4 rounded-full bg-green-500"></div>
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-gray-900">Phase 1: Completed</p>
-                      <p className="text-xs text-gray-500">System development and internal testing</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 h-4 w-4 rounded-full bg-blue-500"></div>
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-gray-900">Phase 2: In Progress</p>
-                      <p className="text-xs text-gray-500">Stakeholder presentations and feedback</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center">
-                    <div className="flex-shrink-0 h-4 w-4 rounded-full bg-gray-300"></div>
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-gray-900">Phase 3: Upcoming</p>
-                      <p className="text-xs text-gray-500">Public rollout and community onboarding</p>
-                    </div>
-                  </div>
-                </div>
+                <h4 className="text-xl font-semibold text-gray-900 mb-3">Get Started</h4>
+                <p className="text-gray-600 mb-6">
+                  To access the Linka IDP Portal, click the login button. Demo credentials are available for both administrator and resident views.
+                </p>
                 <div className="mt-6">
                   <Link 
                     to="/login" 
                     className="inline-flex items-center px-5 py-2.5 border border-transparent text-sm font-medium rounded-lg shadow-sm text-white bg-gradient-to-r from-gray-700 to-purple-800 hover:from-gray-800 hover:to-purple-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-purple-500 transition-all duration-300"
                   >
-                    Access Demo Portal
+                    Proceed to Login
                     <svg className="ml-2 -mr-1 h-4 w-4 transition-transform group-hover:translate-x-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
                     </svg>
