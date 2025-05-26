@@ -355,9 +355,7 @@ const TeamPage = () => {
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-3">Project Mission</h4>
                 <p className="text-gray-600">
-                  The Linka IDP Portal is a comprehensive platform designed to streamline the 
-                  integrated development planning process for municipalities. It facilitates 
-                  collaboration between administrators and residents to address community needs effectively.
+                  To empower citizens through transparent, inclusive, and data-driven participation in the Integrated Development Plan (IDP) process by bridging the gap between municipalities and communities using accessible digital tools.
                 </p>
               </div>
             </div>
