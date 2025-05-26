@@ -371,12 +371,53 @@ const TeamPage = () => {
                   </svg>
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-3">Technologies</h4>
-                <div className="flex flex-wrap gap-2">
-                  {['React', 'Java', 'Spring Boot', 'MySQL', 'TailwindCSS'].map((tech) => (
-                    <span key={tech} className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 border border-indigo-200">
-                      {tech}
-                    </span>
-                  ))}
+                
+                {/* Frontend Technologies */}
+                <div className="mb-4">
+                  <h5 className="text-sm font-semibold text-indigo-800 mb-2">Frontend</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {['React.js', 'Vite', 'Tailwind CSS', 'React Router'].map((tech) => (
+                      <span key={tech} className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 border border-indigo-200">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Backend Technologies */}
+                <div className="mb-4">
+                  <h5 className="text-sm font-semibold text-indigo-800 mb-2">Backend</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {['Java', 'Spring Boot', 'Spring Security', 'Spring Mail', 'MySQL', 'JPA/Hibernate'].map((tech) => (
+                      <span key={tech} className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-purple-100 text-purple-800 border border-purple-200">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Authentication */}
+                <div className="mb-4">
+                  <h5 className="text-sm font-semibold text-indigo-800 mb-2">Authentication</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {['JWT', 'Redis'].map((tech) => (
+                      <span key={tech} className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800 border border-blue-200">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Tools & Platforms */}
+                <div>
+                  <h5 className="text-sm font-semibold text-indigo-800 mb-2">Tools & Platforms</h5>
+                  <div className="flex flex-wrap gap-2">
+                    {['Postman', 'Netlify', 'MySQL Workbench'].map((tech) => (
+                      <span key={tech} className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800 border border-green-200">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>
