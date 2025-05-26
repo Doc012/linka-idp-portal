@@ -1,15 +1,47 @@
 import { Link } from 'react-router-dom';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const TeamPage = () => {
   const [activeTab, setActiveTab] = useState('all');
   const [animateCards, setAnimateCards] = useState(false);
   const [hoveredEmail, setHoveredEmail] = useState(null);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const slideInterval = useRef(null);
+  
+  const slides = [
+    "https://sn-pcs.netlify.app/repairlink/sld3.jpg",
+    "https://sn-pcs.netlify.app/repairlink/sld1.jpg",
+    "https://sn-pcs.netlify.app/repairlink/sld2.jpg"
+  ];
   
   // Animation effect on page load
   useEffect(() => {
     setAnimateCards(true);
   }, []);
+  
+  // Image slider logic
+  useEffect(() => {
+    const startSlider = () => {
+      slideInterval.current = setInterval(() => {
+        setCurrentSlide(prev => (prev === slides.length - 1 ? 0 : prev + 1));
+      }, 5000);
+    };
+    
+    startSlider();
+    
+    return () => {
+      if (slideInterval.current) {
+        clearInterval(slideInterval.current);
+      }
+    };
+  }, [slides.length]);
+  
+  const goToSlide = (index) => {
+    if (slideInterval.current) {
+      clearInterval(slideInterval.current);
+    }
+    setCurrentSlide(index);
+  };
   
   // Team member data
   const teamMembers = [
@@ -131,36 +163,60 @@ const TeamPage = () => {
         </div>
       </header>
 
-      {/* Hero section with sidebar-matched color palette */}
-      <div className="relative bg-gradient-to-b from-indigo-700 via-indigo-800 to-purple-900 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-20">
-          <svg className="absolute right-0 top-0 transform translate-x-1/4 -translate-y-1/4" width="404" height="404" fill="none" viewBox="0 0 404 404" aria-hidden="true">
-            <defs>
-              <pattern id="85737c0e-0916-41d7-917f-596dc7edfa27" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <rect x="0" y="0" width="4" height="4" className="text-indigo-300" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="404" height="404" fill="url(#85737c0e-0916-41d7-917f-596dc7edfa27)" />
-          </svg>
-          <svg className="absolute bottom-0 left-0 transform -translate-x-1/4 translate-y-1/4" width="404" height="404" fill="none" viewBox="0 0 404 404" aria-hidden="true">
-            <defs>
-              <pattern id="85737c0e-0916-41d7-917f-596dc7edfa28" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                <rect x="0" y="0" width="4" height="4" className="text-indigo-300" fill="currentColor" />
-              </pattern>
-            </defs>
-            <rect width="404" height="404" fill="url(#85737c0e-0916-41d7-917f-596dc7edfa28)" />
-          </svg>
+      {/* Updated Hero section with image slider */}
+      <div className="relative h-[500px] overflow-hidden">
+        {/* Image Slider */}
+        <div className="absolute inset-0">
+          {slides.map((slide, index) => (
+            <div
+              key={index}
+              className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${
+                currentSlide === index ? 'opacity-100' : 'opacity-0'
+              }`}
+            >
+              <img 
+                src={slide} 
+                alt={`Slide ${index + 1}`}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo-900/70 to-purple-900/70"></div>
+            </div>
+          ))}
         </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24 relative">
-          <div className="text-center">
-            <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4">Meet Our Team</h2>
-            <p className="max-w-3xl mx-auto text-xl text-indigo-200">
-              The talented individuals behind the Linka IDP Portal, working together to revolutionize 
-              municipal planning and community engagement.
-            </p>
+        
+        {/* Slider navigation dots */}
+        <div className="absolute bottom-5 left-1/2 transform -translate-x-1/2 z-10 flex space-x-2">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToSlide(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                currentSlide === index 
+                  ? 'bg-white w-6' 
+                  : 'bg-white/50 hover:bg-white/80'
+              }`}
+              aria-label={`Go to slide ${index + 1}`}
+            ></button>
+          ))}
+        </div>
+        
+        {/* Content overlay */}
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 sm:py-24">
+            <div className="text-center">
+              <h2 className="text-4xl sm:text-5xl font-extrabold tracking-tight mb-4 text-white drop-shadow-lg">
+                Meet Our Team
+              </h2>
+              <p className="max-w-3xl mx-auto text-xl text-white/90 drop-shadow">
+                The talented individuals behind the Linka IDP Portal, working together to revolutionize 
+                municipal planning and community engagement.
+              </p>
+            </div>
           </div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-12 bg-gradient-to-b from-transparent to-indigo-50"></div>
+        
+        {/* Gradient overlay at bottom for smooth transition */}
+        <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-indigo-50 to-transparent"></div>
       </div>
 
       {/* Main content - adjusted padding to prevent overlapping */}
@@ -458,7 +514,7 @@ const TeamPage = () => {
           <div className="flex flex-col md:flex-row items-center justify-between">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <div className="h-10 w-10 rounded-lg bg-gradient-to-b from-indigo-700 via-indigo-800 to-purple-900 flex items-center justify-center transform -rotate-2">
+                <div className="h-10 w-10 rounded-lg bg-gradient-to-b from-indigo-700 via-indigo-800 to-purple-900 flex items-center justify-center">
                   <svg className="h-6 w-6 text-indigo-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
