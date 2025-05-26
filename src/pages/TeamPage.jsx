@@ -99,15 +99,15 @@ const TeamPage = () => {
     },
     {
       id: 5,
-      name: "Jessica",
+      name: "Jessica Morwatshehla",
       role: "Backend Developer",
       category: "backend",
       description: "Handled backend logic, RESTful API development, and database design using Spring Boot and MySQL. Ensured the platform was reliable and scalable.",
-      image: "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740",
+      image: "https://sn-pcs.netlify.app/repairlink/j1.jpg",
       contact: {
-        email: "j@gmail.com",
-        github: "gracekim-dev",
-        linkedin: "grace-kim-backend"
+        email: "tshehla456@gmail.com",
+        github: "Jessica054",
+        linkedin: "jessica-morwatshehla-2041ba2a7"
       }
     },
     {
