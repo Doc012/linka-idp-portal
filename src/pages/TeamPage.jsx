@@ -15,15 +15,15 @@ const TeamPage = () => {
   const teamMembers = [
     {
       id: 1,
-      name: "Tiego",
+      name: "Tiego Molele",
       role: "Innovation Developer",
       category: "research",
       description: "Led the project’s vision, aligning it with municipal goals and citizen needs. Brought in creative ideas, feature strategy, and helped define a user-first experience.",
-      image: "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740",
+      image: "https://sn-pcs.netlify.app/repairlink/tiego.jpg",
       contact: {
-        email: "t@gmail.com",
-        github: "sarahjplanner",
-        linkedin: "sarah-johnson-urbanplanning"
+        email: "tiegomo645@gmail.com",
+        github: "Tiego123",
+        linkedin: "tiego-molele-2635b8253?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=ios_app"
       }
     },
     {
