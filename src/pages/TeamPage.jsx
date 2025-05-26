@@ -21,7 +21,7 @@ const TeamPage = () => {
       description: "Led the project’s vision, aligning it with municipal goals and citizen needs. Brought in creative ideas, feature strategy, and helped define a user-first experience.",
       image: "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740",
       contact: {
-        email: "sarah.johnson@linkaresearch.org",
+        email: "t@gmail.com",
         github: "sarahjplanner",
         linkedin: "sarah-johnson-urbanplanning"
       }
@@ -34,7 +34,7 @@ const TeamPage = () => {
       description: "Focused on crafting clean, responsive UI with React and Tailwind CSS. Played a key role in layout design and styling across the platform.",
       image: "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740",
       contact: {
-        email: "david.chen@linkateam.org",
+        email: "m@gmail.com",
         github: "davidchen-dev",
         linkedin: "david-chen-webdev"
       }
@@ -47,7 +47,7 @@ const TeamPage = () => {
       description: "Implemented dynamic frontend components and ensured smooth API integration. Helped bring interactivity and performance to the user interface.",
       image: "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740",
       contact: {
-        email: "amina.patel@linkateam.org",
+        email: "s@gmail.com",
         github: "aminapatels",
         linkedin: "amina-patel-uxdev"
       }
@@ -60,7 +60,7 @@ const TeamPage = () => {
       description: "Worked on user dashboards and public-facing pages. Ensured accessibility, navigation flow, and consistency across screens.",
       image: "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740",
       contact: {
-        email: "miguel.rodriguez@linkateam.org",
+        email: "s@gmail.com",
         github: "miguelr-dev",
         linkedin: "miguel-rodriguez-webdev"
       }
@@ -73,7 +73,7 @@ const TeamPage = () => {
       description: "Handled backend logic, RESTful API development, and database design using Spring Boot and MySQL. Ensured the platform was reliable and scalable.",
       image: "https://img.freepik.com/free-vector/blue-circle-with-white-user_78370-4707.jpg?semt=ais_hybrid&w=740",
       contact: {
-        email: "grace.kim@linkateam.org",
+        email: "j@gmail.com",
         github: "gracekim-dev",
         linkedin: "grace-kim-backend"
       }
