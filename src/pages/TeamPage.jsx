@@ -73,7 +73,7 @@ const TeamPage = () => {
     },
     {
       id: 3,
-      name: "Siyabonga",
+      name: "Siyabonga Hlongwane",
       role: "Frontend Developer",
       category: "frontend",
       description: "Implemented dynamic frontend components and ensured smooth API integration. Helped bring interactivity and performance to the user interface.",
