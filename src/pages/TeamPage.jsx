@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 const TeamPage = () => {
   const [activeTab, setActiveTab] = useState('all');
   const [animateCards, setAnimateCards] = useState(false);
+  const [hoveredEmail, setHoveredEmail] = useState(null);
   
   // Animation effect on page load
   useEffect(() => {
@@ -276,20 +277,36 @@ const TeamPage = () => {
                     <div className="w-16 h-1 rounded-full bg-gradient-to-r from-indigo-200 to-purple-300"></div>
                   </div>
                   
-                  {/* Contact links with enhanced styling */}
+                  {/* Contact links with enhanced styling and email tooltip */}
                   <div className="flex justify-center space-x-5">
-                    <a 
-                      href={`mailto:${member.contact.email}`} 
-                      className="text-indigo-400 hover:text-indigo-600 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
-                      title="Email"
-                    >
-                      <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center shadow-sm hover:shadow">
-                        <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
-                          <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                          <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                        </svg>
-                      </div>
-                    </a>
+                    <div className="relative">
+                      <a 
+                        href={`mailto:${member.contact.email}`} 
+                        className="text-indigo-400 hover:text-indigo-600 transition-all duration-300 transform hover:scale-110 hover:-translate-y-1"
+                        title="Email"
+                        onMouseEnter={() => setHoveredEmail(member.id)}
+                        onMouseLeave={() => setHoveredEmail(null)}
+                      >
+                        <div className="w-10 h-10 rounded-full bg-indigo-50 flex items-center justify-center shadow-sm hover:shadow">
+                          <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                          </svg>
+                        </div>
+                      </a>
+                      
+                      {/* Email tooltip that appears on hover */}
+                      {hoveredEmail === member.id && (
+                        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 bg-indigo-800 text-white text-xs rounded-lg py-2 px-3 shadow-lg z-10 whitespace-nowrap animate-fade-in">
+                          <div className="relative">
+                            {member.contact.email}
+                            {/* Triangle pointer at bottom */}
+                            <div className="absolute -bottom-1 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-indigo-800 rotate-45"></div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                    
                     <a 
                       href={`https://github.com/${member.contact.github}`} 
                       target="_blank"
