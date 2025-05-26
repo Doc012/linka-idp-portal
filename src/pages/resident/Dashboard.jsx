@@ -36,30 +36,30 @@ const ResidentDashboard = () => {
           communityEngagement: 68 // Percentage
         });
 
-        // Mock notifications
+        // Mock notifications with 2025 dates
         setNotifications([
           {
             id: 1,
             type: 'update',
             title: 'Your issue has been addressed',
             description: 'The pothole on Main Street has been fixed',
-            date: '2023-05-22T14:30:00Z',
+            date: '2025-05-24T14:30:00Z', // 2 days ago from May 26, 2025
             isRead: false
           },
           {
             id: 2,
             type: 'alert',
             title: 'Scheduled power maintenance',
-            description: 'Electricity will be interrupted in Ward 2 on June 15 from 9AM to 12PM',
-            date: '2023-05-21T10:15:00Z',
+            description: 'Electricity will be interrupted in Ward 5 on June 15, 2025 from 9AM to 12PM',
+            date: '2025-05-23T10:15:00Z', // 3 days ago
             isRead: true
           },
           {
             id: 3,
             type: 'community',
             title: 'Community cleanup event',
-            description: 'Join your neighbors for a community cleanup this Saturday',
-            date: '2023-05-20T09:45:00Z',
+            description: 'Join your neighbors for a community cleanup this Saturday, May 31, 2025',
+            date: '2025-05-22T09:45:00Z', // 4 days ago
             isRead: false
           }
         ]);
@@ -84,8 +84,25 @@ const ResidentDashboard = () => {
 
   // Format date for display
   const formatDate = (dateString) => {
+    const now = new Date('2025-05-26'); // Current date for presentation
+    const date = new Date(dateString);
+    
+    // Calculate difference in days
+    const diffTime = Math.abs(now - date);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+    // For very recent dates, show relative time
+    if (diffDays === 0) {
+      return 'Today';
+    } else if (diffDays === 1) {
+      return 'Yesterday';
+    } else if (diffDays < 7) {
+      return `${diffDays} days ago`;
+    }
+    
+    // For older dates, show formatted date
     const options = { year: 'numeric', month: 'short', day: 'numeric', hour: '2-digit', minute: '2-digit' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
+    return date.toLocaleDateString('en-ZA', options);
   };
 
   // Get notification icon based on type
@@ -126,19 +143,19 @@ const ResidentDashboard = () => {
     }
   };
 
-  // Get upcoming events for Ward
+  // Get upcoming events for Ward with 2025 dates
   const upcomingEvents = [
     {
       id: 1,
       title: 'Town Hall Meeting',
-      date: '2023-06-15T18:00:00Z',
+      date: '2025-06-15T18:00:00Z',
       location: 'Community Center',
       type: 'meeting'
     },
     {
       id: 2,
       title: 'Park Cleanup Day',
-      date: '2023-06-17T09:00:00Z',
+      date: '2025-06-17T09:00:00Z',
       location: 'Central Park',
       type: 'community'
     }
@@ -346,7 +363,7 @@ const ResidentDashboard = () => {
                         In Progress
                       </span>
                     </div>
-                    <p className="text-sm text-yellow-700 mt-1">Reported on May 18, 2023</p>
+                    <p className="text-sm text-yellow-700 mt-1">Reported on May 18, 2025</p>
                     <div className="mt-2">
                       <p className="text-xs text-yellow-700 mb-1">Status: Repair crew scheduled</p>
                       <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700">
@@ -362,9 +379,9 @@ const ResidentDashboard = () => {
                         Resolved
                       </span>
                     </div>
-                    <p className="text-sm text-green-700 mt-1">Reported on May 10, 2023</p>
+                    <p className="text-sm text-green-700 mt-1">Reported on May 10, 2025</p>
                     <p className="text-xs text-green-700 mt-2">
-                      <span className="font-semibold">Resolution:</span> Light replaced on May 15
+                      <span className="font-semibold">Resolution:</span> Light replaced on May 15, 2025
                     </p>
                   </div>
                 </div>
@@ -522,14 +539,14 @@ const ResidentDashboard = () => {
                   <p className="text-sm text-gray-600 mt-1">
                     The council has approved funding for a new water pipeline to improve supply reliability in your area.
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">Posted 2 days ago</p>
+                  <p className="text-xs text-gray-500 mt-1">Posted May 24, 2025 (2 days ago)</p>
                 </div>
                 <div>
                   <h3 className="font-medium text-gray-800">Municipal budget published for review</h3>
                   <p className="text-sm text-gray-600 mt-1">
                     The proposed municipal budget for the next fiscal year is now available for public review and comment.
                   </p>
-                  <p className="text-xs text-gray-500 mt-1">Posted 5 days ago</p>
+                  <p className="text-xs text-gray-500 mt-1">Posted May 21, 2025 (5 days ago)</p>
                 </div>
               </div>
             </div>
@@ -569,7 +586,7 @@ const ResidentDashboard = () => {
               </button>
               
               <p className="text-xs text-gray-500 text-center mt-3">
-                108 residents have voted so far • Poll closes in 3 days
+                108 residents have voted so far • Poll closes on May 29, 2025 (3 days)
               </p>
             </div>
           </div>
