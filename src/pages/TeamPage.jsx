@@ -116,7 +116,7 @@ const TeamPage = () => {
       role: "Backend Developer",
       category: "backend",
       description: "Worked on authentication, role-based access, and admin features. Focused on secure data handling and supporting complex user interactions.",
-      image: "https://sn-pcs.netlify.app/repairlink/pic1.jpg",
+      image: "https://media.licdn.com/dms/image/v2/D4D03AQEKxrFnSyVSFQ/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1713457941935?e=1753920000&v=beta&t=CmqLIm0lZ__7irtGAB6BBw4NF9pXCOdWZIMUIlKwzdY",
       contact: {
         email: "sphashepherd@gmail.com",
         github: "Doc012",
