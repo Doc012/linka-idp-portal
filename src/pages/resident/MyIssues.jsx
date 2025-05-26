@@ -17,44 +17,83 @@ const MyIssues = () => {
         // Simulate API call
         await new Promise(resolve => setTimeout(resolve, 1000));
         
-        // Mock data - in a real app, this would come from an API
+        // Mock data with 2025 dates
         const mockIssues = [
           {
-            id: 1,
+            id: 4872,
             title: 'Pothole on Main Street',
-            description: 'Large pothole causing traffic problems',
+            description: 'Large pothole causing traffic problems near the intersection with Oak Avenue. Multiple vehicles have been damaged.',
             category: 'Roads and Transport',
-            location: '123 Main St, Ward 2',
+            location: '123 Main St, Ward 5',
             severity: 'high',
             status: 'pending',
-            submittedDate: '2023-05-20T14:30:00Z',
-            lastUpdated: '2023-05-21T09:15:00Z',
-            assignedTo: 'Road Maintenance Team'
+            submittedDate: '2025-05-24T14:30:00Z', // 2 days ago from May 26, 2025
+            lastUpdated: '2025-05-25T09:15:00Z', // 1 day ago
+            assignedTo: 'Road Maintenance Team',
+            referenceNumber: 'INC-2025-4872'
           },
           {
-            id: 2,
+            id: 4851,
             title: 'Streetlight not working',
-            description: 'Streetlight has been out for 3 days causing safety concerns',
+            description: 'Streetlight has been out for 3 days causing safety concerns for pedestrians in the evening. The pole number is SL-452.',
             category: 'Electricity',
-            location: 'Corner of Oak and Pine, Ward 2',
+            location: 'Corner of Oak and Pine, Ward 5',
             severity: 'medium',
             status: 'in-progress',
-            submittedDate: '2023-05-15T10:30:00Z',
-            lastUpdated: '2023-05-18T16:45:00Z',
-            assignedTo: 'Electrical Services'
+            submittedDate: '2025-05-18T10:30:00Z', // 8 days ago
+            lastUpdated: '2025-05-23T16:45:00Z', // 3 days ago
+            assignedTo: 'Electrical Services',
+            referenceNumber: 'INC-2025-4851',
+            updates: [
+              { date: '2025-05-20T09:30:00Z', text: 'Issue verified by municipal inspector' },
+              { date: '2025-05-23T16:45:00Z', text: 'Maintenance team scheduled for repair on May 27, 2025' }
+            ]
           },
           {
-            id: 3,
+            id: 4803,
             title: 'Garbage not collected',
-            description: 'Garbage has not been collected for the past 2 weeks',
+            description: 'Garbage has not been collected for the past 2 weeks. This is causing hygiene concerns and attracting pests.',
             category: 'Waste Management',
-            location: 'Maple Avenue, Ward 2',
+            location: 'Maple Avenue, Ward 5',
             severity: 'medium',
             status: 'resolved',
-            submittedDate: '2023-05-10T09:20:00Z',
-            lastUpdated: '2023-05-12T14:30:00Z',
+            submittedDate: '2025-05-12T09:20:00Z', // 14 days ago
+            lastUpdated: '2025-05-14T14:30:00Z', // 12 days ago
             assignedTo: 'Waste Management Department',
-            resolution: 'Collection schedule updated and garbage collected'
+            resolution: 'Collection schedule updated and garbage collected. Area supervisor has implemented monitoring to prevent recurrence.',
+            referenceNumber: 'INC-2025-4803',
+            updates: [
+              { date: '2025-05-12T15:45:00Z', text: 'Issue logged with Waste Management Department' },
+              { date: '2025-05-13T10:20:00Z', text: 'Waste collection team dispatched' },
+              { date: '2025-05-14T14:30:00Z', text: 'Issue resolved - waste collected and area cleaned' }
+            ],
+            satisfaction: {
+              rating: 4,
+              feedback: 'Quick response once the issue was assigned. Would appreciate more regular collection in future.'
+            }
+          },
+          {
+            id: 4756,
+            title: 'Water leak on Acacia Drive',
+            description: 'Water leaking from a pipe near the sidewalk. The area is becoming muddy and slippery.',
+            category: 'Water and Sanitation',
+            location: '45 Acacia Drive, Ward 5',
+            severity: 'high',
+            status: 'resolved',
+            submittedDate: '2025-04-30T11:20:00Z', // About 4 weeks ago
+            lastUpdated: '2025-05-02T13:45:00Z', // About 3.5 weeks ago
+            assignedTo: 'Water Services Department',
+            resolution: 'Pipe repaired and area restored. Preventive maintenance scheduled for surrounding infrastructure.',
+            referenceNumber: 'INC-2025-4756',
+            updates: [
+              { date: '2025-04-30T14:30:00Z', text: 'Emergency team dispatched to assess leak' },
+              { date: '2025-05-01T08:15:00Z', text: 'Repair work commenced' },
+              { date: '2025-05-02T13:45:00Z', text: 'Repair completed and water supply restored' }
+            ],
+            satisfaction: {
+              rating: 5,
+              feedback: 'Excellent response time and the team was very professional.'
+            }
           }
         ];
         
@@ -76,10 +115,27 @@ const MyIssues = () => {
     ? issues 
     : issues.filter(issue => issue.status === filter);
   
-  // Format date for display
+  // Format date for display with 2025 context
   const formatDate = (dateString) => {
-    const options = { year: 'numeric', month: 'short', day: 'numeric' };
-    return new Date(dateString).toLocaleDateString(undefined, options);
+    const date = new Date(dateString);
+    const now = new Date('2025-05-26'); // Current date for the presentation
+    
+    // Calculate difference in days
+    const diffTime = Math.abs(now - date);
+    const diffDays = Math.floor(diffTime / (1000 * 60 * 60 * 24));
+    
+    // For very recent dates (last 7 days), show relative time
+    if (diffDays < 1) {
+      return 'Today';
+    } else if (diffDays === 1) {
+      return 'Yesterday';
+    } else if (diffDays < 7) {
+      return `${diffDays} days ago`;
+    }
+    
+    // For older dates, show formatted date
+    const options = { year: 'numeric', month: 'long', day: 'numeric' };
+    return date.toLocaleDateString('en-ZA', options);
   };
   
   // Get status badge style

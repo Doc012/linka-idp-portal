@@ -35,7 +35,7 @@ const ReportIssue = () => {
     { id: 'OTHER', name: 'Other', icon: '📋' }
   ];
   
-  // Mock recent issues in ward
+  // Mock recent issues in ward with 2025 dates
   const recentIssues = [
     {
       id: 4501,
@@ -44,7 +44,7 @@ const ReportIssue = () => {
       title: 'Water leak on Magnolia Avenue',
       status: 'IN_PROGRESS',
       statusLabel: 'In Progress',
-      reportedDate: new Date(Date.now() - 2 * 24 * 60 * 60 * 1000) // 2 days ago
+      reportedDate: new Date('2025-05-24') // 2 days ago from May 26, 2025
     },
     {
       id: 4498,
@@ -53,7 +53,7 @@ const ReportIssue = () => {
       title: 'Pothole at corner of Oak and Pine Street',
       status: 'RESOLVED',
       statusLabel: 'Resolved',
-      reportedDate: new Date(Date.now() - 7 * 24 * 60 * 60 * 1000) // 1 week ago
+      reportedDate: new Date('2025-05-19') // 1 week ago from May 26, 2025
     },
     {
       id: 4480,
@@ -62,7 +62,7 @@ const ReportIssue = () => {
       title: 'Street light not working on Dahlia Road',
       status: 'ASSIGNED',
       statusLabel: 'Assigned',
-      reportedDate: new Date(Date.now() - 3 * 24 * 60 * 60 * 1000) // 3 days ago
+      reportedDate: new Date('2025-05-23') // 3 days ago from May 26, 2025
     }
   ];
   
@@ -170,16 +170,22 @@ const ReportIssue = () => {
     }, 1500);
   };
 
-  // Format date for display
+  // Format date for display with 2025 context
   const formatDate = (date) => {
-    const now = new Date();
+    const now = new Date('2025-05-26'); // Current date for the presentation (May 26, 2025)
     const diffDays = Math.floor((now - date) / (1000 * 60 * 60 * 24));
     
     if (diffDays === 0) return 'Today';
     if (diffDays === 1) return 'Yesterday';
     if (diffDays < 7) return `${diffDays} days ago`;
     if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
-    return date.toLocaleDateString();
+    
+    // Use South African date format for older dates
+    return date.toLocaleDateString('en-ZA', {
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    });
   };
 
   return (
@@ -200,7 +206,7 @@ const ReportIssue = () => {
           <div>
             <p className="font-medium">Issue reported successfully!</p>
             <p className="text-sm">Your issue has been submitted to the municipality. You can track its progress in the "My Issues" section.</p>
-            <p className="text-sm mt-2">Reference number: <span className="font-medium">INC-{Math.floor(100000 + Math.random() * 900000)}</span></p>
+            <p className="text-sm mt-2">Reference number: <span className="font-medium">INC-2025-{Math.floor(10000 + Math.random() * 90000)}</span></p>
           </div>
         </div>
       )}

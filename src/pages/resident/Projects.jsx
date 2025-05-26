@@ -22,7 +22,7 @@ const Projects = () => {
         // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 800));
         
-        // Static project data for the resident's ward
+        // Static project data with updated recent dates for 2025
         const mockProjects = [
           {
             id: 1,
@@ -30,17 +30,17 @@ const Projects = () => {
             description: "Complete resurfacing of Main Street from Oak Avenue to Pine Boulevard to address degraded road conditions and improve safety.",
             category: "INFRASTRUCTURE",
             status: "IN_PROGRESS",
-            startDate: "2023-04-15",
-            endDate: "2023-06-30",
+            startDate: "2025-02-15",
+            endDate: "2025-06-30",
             budget: 850000,
             spent: 475000,
             wardId: residentUser?.wardNumber,
             location: "Main Street",
             progress: 60,
             updates: [
-              { date: "2023-04-15", text: "Project commenced - road preparation began" },
-              { date: "2023-05-01", text: "First section completed - 30% of total project" },
-              { date: "2023-05-20", text: "Second section in progress - on schedule" }
+              { date: "2025-02-15", text: "Project commenced - road preparation began" },
+              { date: "2025-03-20", text: "First section completed - 30% of total project" },
+              { date: "2025-05-10", text: "Second section in progress - on schedule" }
             ],
             images: [
               "https://media.istockphoto.com/id/626291464/photo/street-resurfacing-men-and-machinery-in-port-charlotte-florida.jpg?s=612x612&w=0&k=20&c=KHtwQUK8Za2IhzRAlCENMiHPSB2Q4wp7xb5Q8kG7WOk="
@@ -55,16 +55,16 @@ const Projects = () => {
             description: "Upgrade of Central Community Park including new playground equipment, improved lighting, and landscaping enhancements.",
             category: "PARKS",
             status: "PLANNED",
-            startDate: "2023-07-10",
-            endDate: "2023-09-15",
+            startDate: "2025-07-10",
+            endDate: "2025-09-15",
             budget: 350000,
             spent: 0,
             wardId: residentUser?.wardNumber,
             location: "Central Community Park, Riverside Drive",
             progress: 0,
             updates: [
-              { date: "2023-05-15", text: "Project approved by council" },
-              { date: "2023-05-28", text: "Community consultation completed" }
+              { date: "2025-04-15", text: "Project approved by council" },
+              { date: "2025-05-18", text: "Community consultation completed" }
             ],
             images: [
               "https://images.squarespace-cdn.com/content/v1/50afefd0e4b01c11f0ec0c82/1551238130609-C0HAH9S6XZCXEL0JSGUL/ElkRidgePark-101-DesignConcepts.jpg?format=1500w"
@@ -79,16 +79,16 @@ const Projects = () => {
             description: "Replacement of aging water supply infrastructure to improve reliability and reduce leakage in the eastern section of the ward.",
             category: "WATER",
             status: "PLANNED",
-            startDate: "2023-08-01",
-            endDate: "2023-10-30",
+            startDate: "2025-08-01",
+            endDate: "2025-10-30",
             budget: 1200000,
             spent: 0,
             wardId: residentUser?.wardNumber,
             location: "Eastern District - Oak Street to Maple Avenue",
             progress: 0,
             updates: [
-              { date: "2023-05-10", text: "Engineering assessment completed" },
-              { date: "2023-05-25", text: "Tender process initiated" }
+              { date: "2025-04-10", text: "Engineering assessment completed" },
+              { date: "2025-05-20", text: "Tender process initiated" }
             ],
             images: [
               "https://www.george.gov.za/wp-content/uploads/2022/05/Parkdene-water-scaled.jpg"
@@ -103,18 +103,18 @@ const Projects = () => {
             description: "Installation of energy-efficient LED street lighting throughout the ward to improve visibility and safety while reducing energy consumption.",
             category: "ELECTRICITY",
             status: "COMPLETED",
-            startDate: "2023-02-01",
-            endDate: "2023-04-15",
-            actualEndDate: "2023-04-10",
+            startDate: "2024-11-01",
+            endDate: "2025-01-15",
+            actualEndDate: "2025-01-10",
             budget: 320000,
             spent: 305000,
             wardId: residentUser?.wardNumber,
             location: "Ward-wide implementation",
             progress: 100,
             updates: [
-              { date: "2023-02-01", text: "Project commenced with main thoroughfares" },
-              { date: "2023-03-10", text: "75% of installations completed" },
-              { date: "2023-04-10", text: "Project completed ahead of schedule" }
+              { date: "2024-11-01", text: "Project commenced with main thoroughfares" },
+              { date: "2024-12-10", text: "75% of installations completed" },
+              { date: "2025-01-10", text: "Project completed ahead of schedule" }
             ],
             images: [
               "https://i0.wp.com/oucblog.com/wp-content/uploads/2022/05/ROADWAY-LED-LIGHTING-SIDE-BY-SIDE.jpg?resize=1280%2C640&ssl=1"
@@ -130,17 +130,17 @@ const Projects = () => {
             description: "Upgrading stormwater infrastructure to prevent flooding during heavy rainfall in low-lying areas of the ward.",
             category: "INFRASTRUCTURE",
             status: "IN_PROGRESS",
-            startDate: "2023-03-15",
-            endDate: "2023-07-30",
+            startDate: "2025-01-15",
+            endDate: "2025-06-30",
             budget: 750000,
             spent: 450000,
             wardId: residentUser?.wardNumber,
             location: "Valley View Area - Riverside to Lakeside",
             progress: 45,
             updates: [
-              { date: "2023-03-15", text: "Ground works commenced" },
-              { date: "2023-04-20", text: "Main drainage channels excavated" },
-              { date: "2023-05-18", text: "Concrete lining of channels in progress" }
+              { date: "2025-01-15", text: "Ground works commenced" },
+              { date: "2025-02-20", text: "Main drainage channels excavated" },
+              { date: "2025-04-18", text: "Concrete lining of channels in progress" }
             ],
             images: [
               "https://amtengineering.com/wp-content/uploads/2020/11/Slip-Lining-MD16-2-updated.jpg"
@@ -200,10 +200,15 @@ const Projects = () => {
     }).format(amount);
   };
 
-  // Format date for display
+  // Format date for display - ensuring all dates show 2025 when appropriate
   const formatDate = (dateString) => {
     if (!dateString) return 'N/A';
-    return new Date(dateString).toLocaleDateString('en-ZA', {
+    
+    // Create a proper date object from the string
+    const date = new Date(dateString);
+    
+    // Format it according to South African locale with full month name
+    return date.toLocaleDateString('en-ZA', {
       day: 'numeric', 
       month: 'long', 
       year: 'numeric'

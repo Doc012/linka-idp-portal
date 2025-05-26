@@ -37,7 +37,7 @@ const WardView = () => {
             {
               id: 1,
               title: "Community Clean-up Day",
-              date: "June 18, 2023",
+              date: "June 18, 2025",
               time: "09:00 - 12:00",
               location: `${ward.name} Central Park`,
               description: "Join your neighbors in cleaning up our community parks and streets. Supplies provided. Earn 100 participation points!",
@@ -47,7 +47,7 @@ const WardView = () => {
             {
               id: 2,
               title: "Ward Budget Consultation",
-              date: "June 22, 2023",
+              date: "June 22, 2025",
               time: "18:00 - 20:00",
               location: `${ward.name} Community Hall`,
               description: "Have your say in how municipal funds are allocated in our ward. Your input directly shapes our community's future.",
@@ -57,7 +57,7 @@ const WardView = () => {
             {
               id: 3,
               title: "Youth Skills Development Workshop",
-              date: "June 25, 2023",
+              date: "June 25, 2025",
               time: "10:00 - 15:00",
               location: "Midvaal Technology Center",
               description: "Free workshop for youth aged 16-25. Learn digital skills, CV writing, and interview techniques.",
@@ -300,7 +300,7 @@ const WardView = () => {
               <p className="text-yellow-700 font-medium">Scheduled Water Maintenance</p>
               <p className="text-yellow-600 text-sm mt-1">
                 There will be a scheduled water interruption in parts of {selectedWard?.name || 'your ward'} on 
-                June 17, 2023 from 09:00 to 14:00. Please store water for use during this period.
+                June 17, 2025 from 09:00 to 14:00. Please store water for use during this period.
               </p>
               <div className="mt-2">
                 <a 
@@ -516,7 +516,7 @@ const WardView = () => {
                   <div className="bg-yellow-50 border-l-4 border-yellow-400 p-4 mb-4">
                     <div className="flex">
                       <p className="text-sm text-yellow-800">
-                        <span className="font-bold">Notice:</span> Ward committee meeting scheduled for 15 June 2023 
+                        <span className="font-bold">Notice:</span> Ward committee meeting scheduled for 15 June 2025 
                         at the {selectedWard.name} Community Hall.
                       </p>
                       <button className="ml-auto text-yellow-800 hover:text-yellow-900">
@@ -672,7 +672,7 @@ const WardView = () => {
                   </div>
                   <div className="flex justify-between text-xs text-gray-500">
                     <span>72% of roads in good condition</span>
-                    <span>Last assessment: May 2023</span>
+                    <span>Last assessment: May 2025</span>
                   </div>
                 </div>
                 

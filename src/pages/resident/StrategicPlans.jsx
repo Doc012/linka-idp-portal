@@ -28,7 +28,7 @@ const StrategicPlans = () => {
         // Simulate API call delay
         await new Promise(resolve => setTimeout(resolve, 800));
         
-        // Mock strategic plan data
+        // Mock strategic plan data with updated dates for 2025
         const mockPlans = [
           {
             id: 1,
@@ -36,11 +36,11 @@ const StrategicPlans = () => {
             description: "A comprehensive plan to improve and expand infrastructure across the ward, focusing on road networks, water supply systems, and public facilities to enhance service delivery and quality of life for residents.",
             category: "INFRASTRUCTURE",
             status: "ACTIVE",
-            startDate: "2023-01-15",
-            endDate: "2025-12-31",
+            startDate: "2025-01-15",
+            endDate: "2027-12-31",
             wardId: 5,
             keyObjectives: [
-              "Upgrade 70% of road infrastructure within the ward by 2025",
+              "Upgrade 70% of road infrastructure within the ward by 2027",
               "Improve water supply reliability to reduce outages by 90%",
               "Construct 3 new community facilities to serve underserved areas",
               "Upgrade stormwater management systems to prevent flooding"
@@ -65,7 +65,7 @@ const StrategicPlans = () => {
                 userId: "user456", 
                 userName: "Sarah Mthembu", 
                 userAvatar: "https://randomuser.me/api/portraits/women/45.jpg",
-                date: "2023-03-15", 
+                date: "2025-03-15", 
                 text: "I'm concerned about the impact of construction on daily commutes. Will there be traffic management plans?",
                 likes: 8,
                 replies: [
@@ -73,7 +73,7 @@ const StrategicPlans = () => {
                     userId: "admin1",
                     userName: "Municipal Manager",
                     userAvatar: "https://randomuser.me/api/portraits/men/78.jpg",
-                    date: "2023-03-16",
+                    date: "2025-03-16",
                     text: "Yes, we have comprehensive traffic management plans for all construction periods. These include alternative routes and scheduled work during off-peak hours."
                   }
                 ]
@@ -83,17 +83,17 @@ const StrategicPlans = () => {
                 userId: "user789", 
                 userName: "Thomas van der Merwe", 
                 userAvatar: "https://randomuser.me/api/portraits/men/22.jpg",
-                date: "2023-04-02", 
+                date: "2025-04-02", 
                 text: "The water supply improvements are urgently needed in the eastern section of our ward. I hope this gets prioritized early in the implementation schedule.",
                 likes: 12,
                 replies: []
               }
             ],
             updates: [
-              { date: "2023-02-10", text: "Initial assessment of road infrastructure completed" },
-              { date: "2023-04-15", text: "First phase of water supply upgrades commenced" },
-              { date: "2023-06-20", text: "Site selection for new community centers finalized" },
-              { date: "2023-09-05", text: "Community consultation sessions held with 120+ attendees" }
+              { date: "2025-02-10", text: "Initial assessment of road infrastructure completed" },
+              { date: "2025-04-15", text: "First phase of water supply upgrades commenced" },
+              { date: "2025-05-10", text: "Site selection for new community centers finalized" },
+              { date: "2025-05-20", text: "Community consultation sessions held with 120+ attendees" }
             ],
             averageRating: 4.2,
             ratingCount: 45,
@@ -106,11 +106,11 @@ const StrategicPlans = () => {
             description: "A strategic plan to stimulate local economic development, attract investment, and create sustainable employment opportunities while supporting small businesses and entrepreneurship within the ward.",
             category: "ECONOMIC_DEVELOPMENT",
             status: "ACTIVE",
-            startDate: "2023-03-01",
-            endDate: "2026-02-28",
+            startDate: "2025-03-01",
+            endDate: "2028-02-28",
             wardId: 5,
             keyObjectives: [
-              "Attract at least 5 new businesses to the ward by 2025",
+              "Attract at least 5 new businesses to the ward by 2027",
               "Create 500+ new jobs through economic development initiatives",
               "Establish a small business support center",
               "Develop skills training programs targeting youth unemployment"
@@ -134,7 +134,7 @@ const StrategicPlans = () => {
                 userId: "user321", 
                 userName: "Nomsa Dlamini", 
                 userAvatar: "https://randomuser.me/api/portraits/women/32.jpg",
-                date: "2023-04-10", 
+                date: "2025-04-10", 
                 text: "We need skills development programs specifically for digital careers. The tech sector offers great opportunities but requires specific training.",
                 likes: 15,
                 replies: [
@@ -142,7 +142,7 @@ const StrategicPlans = () => {
                     userId: "admin2",
                     userName: "Economic Development Officer",
                     userAvatar: "https://randomuser.me/api/portraits/women/58.jpg",
-                    date: "2023-04-12",
+                    date: "2025-04-12",
                     text: "Thank you for your suggestion. We're currently exploring partnerships with tech companies to develop specialized training programs. We'd love to hear more about specific skills you think would be valuable."
                   }
                 ]
@@ -152,17 +152,17 @@ const StrategicPlans = () => {
                 userId: "user654", 
                 userName: "James Smith", 
                 userAvatar: "https://randomuser.me/api/portraits/men/42.jpg",
-                date: "2023-05-22", 
+                date: "2025-05-22", 
                 text: "The small business support center would greatly help local entrepreneurs like myself. When is the expected completion date?",
                 likes: 7,
                 replies: []
               }
             ],
             updates: [
-              { date: "2023-03-15", text: "Economic baseline assessment completed" },
-              { date: "2023-05-10", text: "First business investment seminar held with 45 attendees" },
-              { date: "2023-07-01", text: "Site secured for small business development center" },
-              { date: "2023-08-22", text: "Partnership agreement signed with 3 skills development providers" }
+              { date: "2025-03-15", text: "Economic baseline assessment completed" },
+              { date: "2025-04-10", text: "First business investment seminar held with 45 attendees" },
+              { date: "2025-05-01", text: "Site secured for small business development center" },
+              { date: "2025-05-22", text: "Partnership agreement signed with 3 skills development providers" }
             ],
             averageRating: 4.0,
             ratingCount: 32,
@@ -175,8 +175,8 @@ const StrategicPlans = () => {
             description: "A holistic approach to improving health outcomes, social cohesion, and quality of life for all residents through enhanced social services, healthcare access, and community engagement initiatives.",
             category: "SOCIAL_SERVICES",
             status: "PLANNED",
-            startDate: "2023-10-15",
-            endDate: "2026-10-14",
+            startDate: "2025-07-15",
+            endDate: "2028-07-14",
             wardId: 5,
             keyObjectives: [
               "Improve access to primary healthcare services by 50%",
@@ -200,16 +200,16 @@ const StrategicPlans = () => {
                 userId: "user111", 
                 userName: "Elizabeth Khumalo", 
                 userAvatar: "https://randomuser.me/api/portraits/women/23.jpg",
-                date: "2023-08-30", 
+                date: "2025-04-30", 
                 text: "I'm glad to see mental health services included in this plan. Will there be support specifically for youth mental health?",
                 likes: 9,
                 replies: []
               }
             ],
             updates: [
-              { date: "2023-07-10", text: "Community needs assessment completed" },
-              { date: "2023-07-25", text: "Draft implementation plan developed" },
-              { date: "2023-09-01", text: "Budget approval secured" }
+              { date: "2025-03-10", text: "Community needs assessment completed" },
+              { date: "2025-04-25", text: "Draft implementation plan developed" },
+              { date: "2025-05-01", text: "Budget approval secured" }
             ],
             averageRating: 3.8,
             ratingCount: 16,
@@ -222,8 +222,8 @@ const StrategicPlans = () => {
             description: "A forward-looking strategy to enhance environmental protection, promote sustainable practices, and build resilience against climate change impacts within the ward.",
             category: "ENVIRONMENTAL",
             status: "PLANNED",
-            startDate: "2023-11-01",
-            endDate: "2026-10-31",
+            startDate: "2025-08-01",
+            endDate: "2028-07-31",
             wardId: 5,
             keyObjectives: [
               "Increase green spaces by 25% across the ward",
@@ -243,8 +243,8 @@ const StrategicPlans = () => {
             ],
             publicComments: [],
             updates: [
-              { date: "2023-08-05", text: "Environmental impact assessment initiated" },
-              { date: "2023-09-15", text: "Stakeholder consultation meetings scheduled" }
+              { date: "2025-04-05", text: "Environmental impact assessment initiated" },
+              { date: "2025-05-15", text: "Stakeholder consultation meetings scheduled" }
             ],
             averageRating: 4.5,
             ratingCount: 12,
@@ -257,9 +257,9 @@ const StrategicPlans = () => {
             description: "A comprehensive plan to improve governance, optimize service delivery, and enhance citizen participation in municipal affairs to create a more responsive and efficient local government.",
             category: "GOVERNANCE",
             status: "COMPLETED",
-            startDate: "2022-01-10",
-            endDate: "2023-01-09",
-            actualEndDate: "2023-01-15",
+            startDate: "2024-01-10",
+            endDate: "2025-01-09",
+            actualEndDate: "2025-01-15",
             wardId: 5,
             keyObjectives: [
               "Reduce service request response time by 60%",
@@ -287,7 +287,7 @@ const StrategicPlans = () => {
                 userId: "user222", 
                 userName: "Lunga Dlamini", 
                 userAvatar: "https://randomuser.me/api/portraits/men/55.jpg",
-                date: "2022-06-10", 
+                date: "2024-06-10", 
                 text: "The new online reporting system has made it much easier to log service requests.",
                 likes: 13,
                 replies: []
@@ -297,7 +297,7 @@ const StrategicPlans = () => {
                 userId: "user333", 
                 userName: "Pieter Botha", 
                 userAvatar: "https://randomuser.me/api/portraits/men/62.jpg",
-                date: "2022-08-15", 
+                date: "2024-08-15", 
                 text: "Response times have improved, but there's still room for improvement in water-related issues.",
                 likes: 8,
                 replies: [
@@ -305,7 +305,7 @@ const StrategicPlans = () => {
                     userId: "admin3",
                     userName: "Service Delivery Manager",
                     userAvatar: "https://randomuser.me/api/portraits/men/82.jpg",
-                    date: "2022-08-16",
+                    date: "2024-08-16",
                     text: "Thank you for your feedback. We've noted this gap and have implemented additional measures specifically for water service issues in our follow-up plans."
                   }
                 ]
@@ -315,18 +315,18 @@ const StrategicPlans = () => {
                 userId: "user444", 
                 userName: "Kamini Naidoo", 
                 userAvatar: "https://randomuser.me/api/portraits/women/62.jpg",
-                date: "2023-01-20", 
+                date: "2025-01-20", 
                 text: "Overall this has been a successful initiative. The mobile app is particularly useful.",
                 likes: 17,
                 replies: []
               }
             ],
             updates: [
-              { date: "2022-01-10", text: "Program officially launched" },
-              { date: "2022-04-15", text: "Digital service platform implemented" },
-              { date: "2022-07-20", text: "Staff training program completed" },
-              { date: "2022-11-05", text: "Final assessment initiated" },
-              { date: "2023-01-15", text: "Program completed with 92% of objectives achieved" }
+              { date: "2024-01-10", text: "Program officially launched" },
+              { date: "2024-04-15", text: "Digital service platform implemented" },
+              { date: "2024-07-20", text: "Staff training program completed" },
+              { date: "2024-11-05", text: "Final assessment initiated" },
+              { date: "2025-01-15", text: "Program completed with 92% of objectives achieved" }
             ],
             outcomes: [
               "Reduced average service request response time from 72 hours to 28 hours",
@@ -1040,7 +1040,7 @@ const StrategicPlans = () => {
         ) : (
           <div className="bg-white rounded-lg shadow-md p-6 text-center">
             <svg className="w-16 h-16 text-gray-400 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 7h6" />
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2h2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 7h6" />
             </svg>
             
             <h3 className="text-lg font-medium text-gray-800 mb-2">No strategic plans found</h3>
