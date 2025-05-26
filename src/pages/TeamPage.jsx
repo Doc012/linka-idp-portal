@@ -372,7 +372,7 @@ const TeamPage = () => {
                 </div>
                 <h4 className="text-xl font-semibold text-gray-900 mb-3">Technologies</h4>
                 <div className="flex flex-wrap gap-2">
-                  {['React', 'Node.js', 'Express', 'MongoDB', 'TailwindCSS', 'Mapbox API'].map((tech) => (
+                  {['React', 'Java', 'Spring Boot', 'MySQL', 'TailwindCSS'].map((tech) => (
                     <span key={tech} className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-indigo-100 text-indigo-800 border border-indigo-200">
                       {tech}
                     </span>
