@@ -10,7 +10,7 @@ export const users = [
     surname: "User",
     phoneNumber: "+1234567890",
     email: "admin@example.com",
-    wardNumber: 1,
+    wardNumber: 5,
     password: "$2a$10$dXJ3SW6G7P50lGmMkkmwe.20cQQubK3.HZWzG3YB1tlRy.fqvM/BG", // This should never be exposed in a real app
     enabled: true,
     verificationToken: null,
