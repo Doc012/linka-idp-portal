@@ -6,6 +6,7 @@ const TeamPage = () => {
   const [animateCards, setAnimateCards] = useState(false);
   const [hoveredEmail, setHoveredEmail] = useState(null);
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isLoading, setIsLoading] = useState(true);
   const slideInterval = useRef(null);
   
   const slides = [
@@ -14,27 +15,65 @@ const TeamPage = () => {
     "https://sn-pcs.netlify.app/repairlink/sld2.jpg"
   ];
   
-  // Animation effect on page load
+  // Preload images and handle loading state
   useEffect(() => {
-    setAnimateCards(true);
+    const imagePromises = slides.map((src) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = src;
+        img.onload = resolve;
+        img.onerror = reject;
+      });
+    });
+    
+    // Also preload team member images
+    const teamImagePromises = teamMembers.map((member) => {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.src = member.image;
+        img.onload = resolve;
+        img.onerror = resolve; // Still resolve on error to not block loading
+      });
+    });
+    
+    // Wait for all images to load
+    Promise.all([...imagePromises, ...teamImagePromises])
+      .then(() => {
+        // Increased delay from 1000ms to 3500ms (3.5 seconds)
+        setTimeout(() => {
+          setIsLoading(false);
+          setAnimateCards(true);
+        }, 3500); // Extended time to allow users to appreciate the loading animation
+      })
+      .catch(() => {
+        // If there's an error loading some images, still show the site after a timeout
+        // Increased from 2000ms to 4000ms (4 seconds)
+        setTimeout(() => {
+          setIsLoading(false);
+          setAnimateCards(true);
+        }, 4000);
+      });
   }, []);
   
   // Image slider logic
   useEffect(() => {
-    const startSlider = () => {
-      slideInterval.current = setInterval(() => {
-        setCurrentSlide(prev => (prev === slides.length - 1 ? 0 : prev + 1));
-      }, 5000);
-    };
-    
-    startSlider();
-    
-    return () => {
-      if (slideInterval.current) {
-        clearInterval(slideInterval.current);
-      }
-    };
-  }, [slides.length]);
+    // Only start the slider after loading is complete
+    if (!isLoading) {
+      const startSlider = () => {
+        slideInterval.current = setInterval(() => {
+          setCurrentSlide(prev => (prev === slides.length - 1 ? 0 : prev + 1));
+        }, 5000);
+      };
+      
+      startSlider();
+      
+      return () => {
+        if (slideInterval.current) {
+          clearInterval(slideInterval.current);
+        }
+      };
+    }
+  }, [slides.length, isLoading]);
   
   const goToSlide = (index) => {
     if (slideInterval.current) {
@@ -132,8 +171,58 @@ const TeamPage = () => {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-indigo-50 via-purple-50 to-white">
+      {/* Loading Screen */}
+      {isLoading && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-gradient-to-b from-indigo-700 via-indigo-800 to-purple-900">
+          <div className="text-center">
+            <div className="mb-10 relative">
+              {/* Center logo */}
+              <div className="relative h-24 w-24 rounded-xl bg-white/10 backdrop-blur-sm flex items-center justify-center mx-auto shadow-lg z-10">
+                <svg className="h-14 w-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
+                </svg>
+              </div>
+              
+              {/* Pulsing ring */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="h-32 w-32 rounded-full border-2 border-indigo-300/50 animate-pulse-ring"></div>
+              </div>
+              
+              {/* Orbiting circles */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div className="relative h-40 w-40">
+                  {/* Orbiting elements */}
+                  <div className="absolute h-3 w-3 rounded-full bg-indigo-300 top-0 left-1/2 -translate-x-1/2 animate-orbit" 
+                       style={{ animationDelay: "0ms" }}></div>
+                  <div className="absolute h-3 w-3 rounded-full bg-purple-300 top-1/2 right-0 -translate-y-1/2 animate-orbit" 
+                       style={{ animationDelay: "-750ms" }}></div>
+                  <div className="absolute h-3 w-3 rounded-full bg-indigo-200 bottom-0 left-1/2 -translate-x-1/2 animate-orbit" 
+                       style={{ animationDelay: "-1500ms" }}></div>
+                  <div className="absolute h-3 w-3 rounded-full bg-purple-200 top-1/2 left-0 -translate-y-1/2 animate-orbit" 
+                       style={{ animationDelay: "-2250ms" }}></div>
+                </div>
+              </div>
+            </div>
+            
+            <h2 className="text-2xl font-bold text-white mb-3">Linka IDP Portal</h2>
+            <p className="text-indigo-200 mb-8">Preparing your experience...</p>
+            
+            {/* Bouncing dots */}
+            <div className="flex justify-center space-x-2">
+              {[0, 1, 2, 3, 4].map((i) => (
+                <div 
+                  key={i}
+                  className="h-2.5 w-2.5 rounded-full bg-white/80 animate-bounce-delayed" 
+                  style={{ animationDelay: `${i * 150}ms` }}
+                ></div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Modern header with glass effect - increased z-index to ensure it stays on top */}
-      <header className="sticky top-0 z-50 bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg shadow-sm border-b border-indigo-100">
+      <header className="sticky top-0 z-40 bg-white bg-opacity-80 backdrop-filter backdrop-blur-lg shadow-sm border-b border-indigo-100">
         <div className="max-w-7xl mx-auto py-4 px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row justify-between items-center">
           <div className="flex items-center mb-4 sm:mb-0">
             <div className="flex-shrink-0">
@@ -219,7 +308,7 @@ const TeamPage = () => {
         </div>
         
         {/* Gradient overlay at bottom for smooth transition */}
-        <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-gray-50 to-transparent"></div>
+        <div className="absolute bottom-0 inset-x-0 h-10 bg-gradient-to-t from-gray-50/70 to-transparent" style={{ bottom: "-8px" }}></div>
       </div>
 
       {/* Main content - adjusted padding to prevent overlapping */}
