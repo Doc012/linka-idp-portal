@@ -314,11 +314,12 @@ const TeamPage = () => {
       {/* Main content - adjusted padding to prevent overlapping */}
       <main className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Enhanced team filtering tabs with more professional styling */}
+        {/* Mobile responsive team filtering tabs */}
         <div className="flex justify-center mb-16">
-          <div className="inline-flex p-1.5 rounded-full bg-white shadow-lg border border-gray-100">
+          <div className="inline-flex flex-wrap justify-center gap-2 p-1.5 rounded-2xl bg-white shadow-lg border border-gray-100 max-w-full">
             <button
               onClick={() => setActiveTab('all')}
-              className={`px-8 py-3 text-sm font-medium rounded-full transition-all duration-200 ${
+              className={`px-4 sm:px-8 py-3 text-sm font-medium rounded-full transition-all duration-200 ${
                 activeTab === 'all'
                   ? 'bg-gradient-to-r from-gray-800 via-gray-900 to-purple-900 text-white shadow-md'
                   : 'bg-transparent text-gray-700 hover:bg-gray-50'
@@ -328,7 +329,7 @@ const TeamPage = () => {
             </button>
             <button
               onClick={() => setActiveTab('research')}
-              className={`px-8 py-3 text-sm font-medium rounded-full transition-all duration-200 ${
+              className={`px-4 sm:px-8 py-3 text-sm font-medium rounded-full transition-all duration-200 ${
                 activeTab === 'research'
                   ? 'bg-gradient-to-r from-gray-800 via-gray-900 to-purple-900 text-white shadow-md'
                   : 'bg-transparent text-gray-700 hover:bg-gray-50'
@@ -338,7 +339,7 @@ const TeamPage = () => {
             </button>
             <button
               onClick={() => setActiveTab('frontend')}
-              className={`px-8 py-3 text-sm font-medium rounded-full transition-all duration-200 ${
+              className={`px-4 sm:px-8 py-3 text-sm font-medium rounded-full transition-all duration-200 ${
                 activeTab === 'frontend'
                   ? 'bg-gradient-to-r from-gray-800 via-gray-900 to-purple-900 text-white shadow-md'
                   : 'bg-transparent text-gray-700 hover:bg-gray-50'
@@ -348,7 +349,7 @@ const TeamPage = () => {
             </button>
             <button
               onClick={() => setActiveTab('backend')}
-              className={`px-8 py-3 text-sm font-medium rounded-full transition-all duration-200 ${
+              className={`px-4 sm:px-8 py-3 text-sm font-medium rounded-full transition-all duration-200 ${
                 activeTab === 'backend'
                   ? 'bg-gradient-to-r from-gray-800 via-gray-900 to-purple-900 text-white shadow-md'
                   : 'bg-transparent text-gray-700 hover:bg-gray-50'
@@ -612,7 +613,7 @@ const TeamPage = () => {
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <div className="h-12 w-12 rounded-lg bg-gradient-to-b from-gray-700 via-gray-800 to-purple-900 flex items-center justify-center shadow-md">
-                  <svg className="h-7 w-7 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <svg className="h-7 w-7 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" />
                   </svg>
                 </div>
